@@ -1,4 +1,4 @@
-angular.module('myApp').controller('AddFormController',
+angular.module('myApp').controller('AddEditFormController',
         function($scope, $location, $routeParams, Forms) {
 
     var id = $routeParams.id;
