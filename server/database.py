@@ -47,28 +47,32 @@ def get_form_id(apikey):
 	 
 def get_form(form_id):
 	form = forms.find_one({'_id': ObjectId(form_id)})
-	return json.dumps(form, default=json_util.default) if form else ''
+	return json.dumps(form, default=json_util.default) if form else None
 
 def update_form(form_id, form_data):
 	modified_form = forms.find_and_modify(query={'_id': ObjectId(form_id)}, update=json.loads(form_data), new=True)
-	return json.dumps(modified_form, default=json_util.default)
+	return json.dumps(modified_form, default=json_util.default) if modified_form else None
 	
 def delete_form(form_id):
 	return forms.find_and_modify(query={'_id': ObjectId(form_id)}, remove=True)
 
 def get_entries(form_id, labels):
 	resultlist = []
-	resultset = entries.find({'form_id': form_id, 'labels' : {'$in': labels.split(',')}})
+	if labels:
+		resultset = entries.find({'form_id': form_id, 'labels' : {'$in': labels.split(',')}})
+	else:
+		resultset = entries.find({'form_id': form_id})
 	for result in resultset:
 		resultlist.append(json.dumps(result, default=json_util.default))
 	return '[' + ', '.join(resultlist) + ']'
 
 def get_entry(entry_id):
-	return json.dumps(entries.find_one({'_id': ObjectId(entry_id)}), default=json_util.default)
+	entry = entries.find_one({'_id': ObjectId(entry_id)})
+	return json.dumps(entry, default=json_util.default) if entry else None
 
 def update_entry(entry_id, form_data):
 	modified_entry = entries.find_and_modify(query={'_id': ObjectId(entry_id)}, update=json.loads(form_data), new=True)
-	return json.dumps(modified_entry, default=json_util.default)
+	return json.dumps(modified_entry, default=json_util.default) if modified_entry else None
 
 def delete_entry(entry_id):
 	return entries.find_and_modify(query={'_id': ObjectId(entry_id)}, remove=True)

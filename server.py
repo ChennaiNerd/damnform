@@ -24,8 +24,8 @@ def create_entry(key):
 	labels = request.args.get('labels')
 	if database.is_valid_form_data(key, request.form, request.data):
 		new_entry = database.save_entry(key, request.form, request.data, labels)
-		if new_entry == '':
-			code = 404
+		if not new_entry:
+			new_entry, code = '', 404
 		return new_entry, code
 	else:
 		return "Invalid form data", 400
@@ -50,14 +50,21 @@ def form(form_id):
 	if request.method == 'GET':
 		code = 200
 		form = database.get_form(form_id)
-		if form == '':
-			code = 404
+		if not form:
+			form, code = '', 404
 		return form, code
 	elif request.method == 'PUT':
-		return database.update_form(form_id, request.data)
+		code = 200
+		form = database.update_form(form_id, request.data)
+		if not form:
+			form, code = '', 404
+		return form, code
 	elif request.method == 'DELETE':
-		database.delete_form(form_id)
-		return '', 204
+		code = 204
+		form = database.delete_form(form_id)
+		if not form:
+			code = 404
+		return '', code
 
 #GET /api/forms/:id/entries?labels=
 @app.route('/api/forms/<form_id>/entries', methods=["GET"])
@@ -76,12 +83,22 @@ def entry(form_id, entry_id):
 	Function to GET, PUT, DELETE a single entry
 	'''
 	if request.method == 'GET':
-		return database.get_entry(entry_id)
+		code = 200
+		entry = database.get_entry(entry_id)
+		if not entry:
+			entry, code = '', 404
+		return entry, code
 	elif request.method == 'PUT':
-		return database.update_entry(entry_id, request.data) 
+		entry = database.update_entry(entry_id, request.data) 
+		if not entry:
+			entry, code = '', 404
+		return entry, code
 	elif request.method == 'DELETE':
-		database.delete_entry(entry_id)
-		return '', 204
+		code = 204
+		entry = database.delete_entry(entry_id)
+		if not entry:
+			code = 404
+		return '', code
 	
 if __name__ == '__main__':
 	app.run(debug = True, host = '0.0.0.0', port = 8000)
