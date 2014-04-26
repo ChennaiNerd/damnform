@@ -61,9 +61,9 @@ def delete_form(form_id):
 def get_entries(form_id, labels):
 	resultlist = []
 	if labels:
-		resultset = entries.find({'form_id': form_id, 'labels' : {'$in': labels.split(',')}})
+		resultset = entries.find({'form_id': ObjectId(form_id), 'labels' : {'$in': labels.split(',')}})
 	else:
-		resultset = entries.find({'form_id': form_id})
+		resultset = entries.find({'form_id': ObjectId(form_id)})
 	for result in resultset:
 		resultlist.append(json.dumps(result, default=json_util.default))
 	return '[' + ', '.join(resultlist) + ']'
