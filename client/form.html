@@ -8,47 +8,130 @@
     <link rel="stylesheet" href="/css/app.css" type="text/css" />
 </head>
 	<body>
-		<!-- Landing Page Form -->
-		<form method="post" action="#">
-			<div class="form-group">
-				<label for="email">Email</label>
-				<input type="email" name="myemail" />
-			<div>
-		</form>
+		<!-- Nav tabs -->
+		<!-- <ul class="nav nav-tabs">
+		  <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+		  <li><a href="#profile" data-toggle="tab">Profile</a></li>
+		  <li><a href="#messages" data-toggle="tab">Messages</a></li>
+		  <li><a href="#settings" data-toggle="tab">Settings</a></li>
+		</ul> -->
 
-		<!-- Simple Form -->
-		<form method="post" action="#">
-			<div class="form-group">
-				<label for="name">Name</label>
-				<input class="form-control" type="text" name="myname" />
+		<!-- Tab panes -->
+		<!-- <div class="tab-content">
+		  <div class="tab-pane active" id="home">...</div>
+		  <div class="tab-pane" id="profile">.12.</div>
+		  <div class="tab-pane" id="messages">.av.</div>
+		  <div class="tab-pane" id="settings">.zzz</div>
+		</div>
+ -->
+ 	<!-- Landing Page Form -->
+ 	<form class="form-horizontal" method="post" action="#">
+ 	  <div class="form-group">
+ 	    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+ 	    <div class="col-sm-10">
+ 	      <input type="email" class="form-control" name="myemail" placeholder="Email"/>
+ 	    </div>
+ 	  </div>
 
-				<label for="email">Email</label>
-				<input class="form-control" type="email" name="myemail" />
+ 	  <div class="form-group">
+ 	    <div class="col-sm-offset-2 col-sm-10">
+ 	      <button type="submit" class="btn btn-default">Subscribe</button>
+ 	    </div>
+ 	  </div>
+ 	</form>
 
-				<label for="name">Mobile</label>
-				<input class="form-control" type="mobile" name="mymobile" />
-			</div>
-		</form>
+ 	<hr>
+ 	<!-- Event Form -->
+ 	<form class="form-horizontal" method="post" action="#">
+ 	  <div class="form-group">
+ 	    <label for="Name" class="col-sm-2 control-label">Name</label>
+ 	    <div class="col-sm-10">
+ 	      <input type="text" class="form-control" name="myname" placeholder="Name"/>
+ 	    </div>
+ 	  </div>
+ 	  <div class="form-group">
+ 	    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+ 	    <div class="col-sm-10">
+ 	      <input type="email" class="form-control" name="myemail" placeholder="Email"/>
+ 	    </div>
+ 	  </div>
+ 	  <div class="form-group">
+ 	    <label for="mobile" class="col-sm-2 control-label">Contact</label>
+ 	    <div class="col-sm-10">
+ 	      <input type="mobile" class="form-control" name="mymobile" placeholder="Mobile"/>
+ 	    </div>
+ 	  </div>
+ 	  <div class="form-group">
+ 	    <label for="teamname" class="col-sm-2 control-label">Team Name</label>
+ 	    <div class="col-sm-10">
+ 	      <input type="text" class="form-control" name="myteamname" placeholder="Team Name"/>
+ 	    </div>
+ 	  </div>
+ 	  <div class="form-group">
+ 	  	<label for="teamsize" class="col-sm-2 control-label">Team Size</label>
+ 	  	<div class="col-sm-10">
+ 	  		<select name="teamsize">
+ 	  			<option>1</option>
+ 	  			<option>2</option>
+ 	  			<option>3</option>
+ 	  			<option>4</option>
+ 	  		</select>
+ 	  	</div>
+ 	  </div>
+ 	  <div class="form-group">
+ 	    <div class="col-sm-offset-2 col-sm-10">
+ 	      <button type="submit" class="btn btn-default">Register</button>
+ 	    </div>
+ 	  </div>
+ 	</form>
 
-		<!-- Contact Form -->
-		<form method="post" action="#">
-			<div class="form-group">
-				<label for="name">Name</label>
-				<input class="form-control" type="text" name="myname" />
 
-				<label for="email">Email</label>
-				<input class="form-control" type="email" name="myemail" />
+ 	<hr>  
+ 	<!-- Contact Form -->
+ 	<form class="form-horizontal" method="post" action="#">
+ 	  <div class="form-group">
+ 	    <label for="Name" class="col-sm-2 control-label">Name</label>
+ 	    <div class="col-sm-10">
+ 	      <input type="text" class="form-control" name="myname" placeholder="Name" required />
+ 	    </div>
+ 	  </div>
+ 	  <div class="form-group">
+ 	    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+ 	    <div class="col-sm-10">
+ 	      <input type="email" class="form-control" name="myemail" placeholder="Email"/>
+ 	    </div>
+ 	  </div>
+ 	  <div class="form-group">
+ 	    <label for="mobile" class="col-sm-2 control-label">Contact</label>
+ 	    <div class="col-sm-10">
+ 	      <input type="mobile" class="form-control" name="mymobile" placeholder="Mobile"/>
+ 	    </div>
+ 	  </div>
+ 	  <div class="form-group">
+ 	    <label for="subject" class="col-sm-2 control-label">Subject</label>
+ 	    <div class="col-sm-10">
+ 	      <input type="text" class="form-control" name="mysubject" placeholder="Subject"/>
+ 	    </div>
+ 	  </div>
+ 	  <div class="form-group">
+ 	  	<label for="subject" class="col-sm-2 control-label">Message</label>
+ 	    <div class="col-sm-offset-2 col-sm-10">
+ 	      <textarea class="form-control" name="mymessage" rows="3"></textarea>
+ 	    </div>
+ 	  </div>
+ 	  <div class="form-group">
+ 	    <div class="col-sm-offset-2 col-sm-10">
+ 	      <button type="submit" class="btn btn-default">Send Request</button>
+ 	    </div>
+ 	  </div>
+ 	</form>
 
-				<label for="mobile">Contact Number (Optional)</label>
-				<input class="form-control" type="mobile" name="mymobile" />
+ 	<hr>
 
-				<label for="subject">Subject</label>
-				<input class="form-control" type="text" name="mymobile" />
 
-				<label for="message">Message</label>
-				<textarea rows="20" cols="40"></textarea>
-			</div>
-		</form>
+
+	<script src="scripts/vendor/jquery.min.js"></script>
+	<script src="scripts/vendor/bootstrap.js"></script>
 	</body>
 </html>
 
