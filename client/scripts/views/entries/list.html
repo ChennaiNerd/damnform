@@ -7,7 +7,7 @@
       </h3>
     </div>
     <div class="col-md-6 pull-right">
-      <form id="form" ng-submit='search()'>
+      <form id="form" ng-submit='searchEntries()'>
         <div class="row">
           <div class="col-md-10">
             <input class="form-control" type="text" name="search"
@@ -24,12 +24,13 @@
 <hr class="ruler ruler-lg">
 <div class="container">
   <div class="row main-row">
-    <div class="col-md-3 sidepane-row">
-      <li class="nav" ng-repeat="label in damnForm.labels">
-        <a ng-click="search(label)">{{label}}</a>
+    <div class="col-sm-2 nav sidepane">
+      <h3>Labels</h3>
+      <li class="sidepane-list-item" ng-repeat="label in damnForm.labels">
+        <a ng-click="searchEntries(label)">{{label}}</a>
       </li>
     </div>
-    <div class="col-md-9">
+    <div class="col-sm-10">
       <table class="table table-striped">
           <tr>
             <th ng-repeat="mandatory in mandatories">
