@@ -16,11 +16,11 @@ angular.module('myApp', [
             })
             .when('/forms/new', {
                 templateUrl: 'scripts/views/forms/add.html',
-                controller: 'AddFormController'
+                controller: 'AddEditFormController'
             })
             .when('/forms/:id/edit', {
                 templateUrl: 'scripts/views/forms/edit.html',
-                controller: 'EditFormController'
+                controller: 'AddEditFormController'
             })
             .when('/forms/:id/entries', {
                 templateUrl: 'scripts/views/entries/list.html',

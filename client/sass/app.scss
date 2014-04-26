@@ -17,6 +17,13 @@ $icon-font-path: "/bower_components/bootstrap-sass/vender/assets/fonts/";
   }
 }
 
+@media (min-width: 700px) {
+  .mini-container {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+}
+
 // Index page
 .jumbotron {
   background-color: #fff;

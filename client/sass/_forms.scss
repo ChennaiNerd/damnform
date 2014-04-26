@@ -6,6 +6,9 @@
 
 .forms-list-item {
   list-style: none;
+  display: inline-block;
+  float: left;
+  width: 25%;
 }
 
 .form-box {
@@ -14,7 +17,7 @@
   margin: 0 16px 16px 0;
   font-size: 16px;
   line-height: 22px;
-  display: inline-block;
+  display: block;
   background-size: cover;
   background-position: center center;
   border-radius: 3px;
@@ -30,8 +33,17 @@
   padding-top: 20px;
   display: inline-block;
   font-size: 30px;
+  line-height: 30px;
 }
 
 .form-box-title-new {
   color: #fcd9a1;
+}
+
+.form-horizontal .schema-list {
+  .row,
+  .form-group {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }

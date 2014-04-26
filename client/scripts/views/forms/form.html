@@ -1,14 +1,15 @@
-<form name="form" class="form-horizontal">
-
+<form name="form" class="form-horizontal well">
     <div class="row">
-        <div class="col-md-5">
-          <div class="form-group">
-            <label for="name">Form Name</label>
-            <input class="form-control" type="text" id="name" name="name" ng-model="damnForm.name" required />
+        <div class="col-md-8">
+           <div class="form-group">
+              <label for="name" class="col-sm-4 control-label">Form Name</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" id="name" name="name" ng-model="damnForm.name" required />
+                  <span ng-show="form.name.$error.required" class="help-block">
+                      Required
+                  </span>
+              </div>
           </div>
-          <span ng-show="form.name.$error.required" class="help-block">
-              Required
-          </span>
         </div>
     </div>
 
@@ -16,7 +17,7 @@
     <h2 class="subheading">Form Fields
         <a class="btn btn-warning btn-xs" href="" ng-click="addField()"> <i class="fa fa-plus"></i> Add Field</a>
     </h2>
-    <div ng-repeat="field in damnForm.schema">
+    <div class="schema-list" ng-repeat="field in damnForm.schema">
         <div class="row">
             <div class="col-md-4">
               <div class="form-group">
@@ -27,13 +28,18 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label for="fieldType">Field Type</label>
-                <input class="form-control" type="text" id="fieldType" name="fieldType" ng-model="field.type" required />
+                <select class="form-control" ng-model="field.type"  ng-options="value for value in fieldTypes">
+                </select>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
-                <label for="fieldMandatory">Field Type</label>
-                <input class="form-control" type="text" id="fieldMandatory" name="fieldMandatory" ng-model="field.mandatry" required />
+                <label for="fieldMandatory"></label>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" id="fieldMandatory" name="fieldMandatory" ng-model="field.mandatry"> Mandatory
+                  </label>
+                </div>
               </div>
             </div>
             <div class="col-md-1">

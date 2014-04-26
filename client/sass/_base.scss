@@ -93,10 +93,15 @@ a:focus {
 
 .page-header {
   border-bottom: none;
+  margin-bottom: 0;
 
   .heading {
     font-size: 22px;
     color: #475b74;
     margin: 20px 0;
   }
+}
+
+.subheading {
+  font-size: 20px;
 }

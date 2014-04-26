@@ -5,7 +5,7 @@
 <div class="list-section">
     <ul class="forms-list">
         <li class="forms-list-item" ng-repeat="form in forms">
-          <a class="form-box" href="#/forms/show/{{ form._id }}">
+          <a class="form-box" href="#/forms/{{ form._id.$oid }}/entries">
             <span class="form-box-title">
                  {{ form.name }}
             </span>
