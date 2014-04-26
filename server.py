@@ -35,7 +35,7 @@ def forms():
 	Function to create forms
 	'''
 	if request.method == 'POST':
-		return database.create_form(request.form)
+		return database.create_form(request.data)
 	elif request.method == 'GET':
 		return database.get_all_forms()
 

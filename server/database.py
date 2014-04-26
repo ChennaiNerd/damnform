@@ -3,6 +3,7 @@ from pymongo import ASCENDING, DESCENDING
 from bson.objectid import ObjectId
 from bson import json_util
 import json
+import uuid
 
 client = MongoClient('mongodb://localhost:27017/')
 db = client['damnform']
@@ -22,7 +23,10 @@ def save_entry(key, form_data, labels):
 
 def create_form(form_data):
 	print "form_data = ", form_data
-	forms.save(form_data)
+	dict_form_data = json.loads(form_data)
+	dict_form_data['apikey'] = str(uuid.uuid4())
+	_id = forms.save(dict_form_data)
+	return json.dumps(forms.find_one({'_id': ObjectId(_id)}),  default=json_util.default)
 
 def get_all_forms():
 	pass	
