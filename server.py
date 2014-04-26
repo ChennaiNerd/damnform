@@ -49,6 +49,7 @@ def form(form_id):
 	if request.method == 'GET':
 		return database.get_form(form_id)
 	elif request.method == 'PUT':
+		print 'PUT___________________ FORM'
 		return database.update_form(form_id, request.data)
 	elif request.method == 'DELETE':
 		database.delete_form(form_id)
@@ -64,5 +65,19 @@ def entries(form_id):
 		labels = request.args.get('labels')
 		return database.get_entries(form_id, labels)	
 
+#GET, PUT, DELETE /api/forms/:id/entries/:id
+@app.route('/api/forms/<form_id>/entries/<entry_id>', methods=["GET", "PUT", "DELETE"])
+def entry(form_id, entry_id):
+	'''
+	Function to GET, PUT, DELETE a single entry
+	'''
+	if request.method == 'GET':
+		return database.get_entry(entry_id)
+	elif request.method == 'PUT':
+		return database.update_entry(entry_id, request.data) 
+	elif request.method == 'DELETE':
+		database.delete_entry(entry_id)
+		return '', 204
+	
 if __name__ == '__main__':
 	app.run(debug = True, host = '0.0.0.0', port = 8000)
