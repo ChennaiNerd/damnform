@@ -1,14 +1,18 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import database
 import uuid
 app = Flask(__name__, static_folder='client', static_url_path='')
 
 @app.route('/')
-@app.route('/app.html')
 def index():
 	return app.send_static_file('index.html')
 
-
+@app.route('/app', methods=["POST", "GET"])
+def default_app():
+	if request.method == "GET":
+		return app.send_static_file('app.html')
+	elif request.method == "POST":
+		return redirect(url_for('default_app'))
 
 #POST /api/:key?labels=:labels
 @app.route('/api/<key>', methods=["POST"])
