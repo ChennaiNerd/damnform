@@ -68,6 +68,7 @@
             <i class="icon-spinner icon-spin ng-hide" ng-show="saving"></i>
             <span>Save</span>
         </a>
-        <a class="btn btn-default" href="#/">Cancel</a>
+        <a class="btn btn-default" href="#/" ng-if="!id">Cancel</a>
+        <a class="btn btn-default" href="#/forms/{{id}}/entries" ng-if="id">Cancel</a>
     </div>
 </form>

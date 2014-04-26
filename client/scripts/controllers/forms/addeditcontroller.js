@@ -1,7 +1,7 @@
 angular.module('myApp').controller('AddEditFormController',
         function($scope, $location, $routeParams, Forms) {
 
-    var id = $routeParams.id;
+    var id = $scope.id = $routeParams.id;
     if (id) {
       $scope.damnForm = Forms.get({ id : id });
     } else {
@@ -10,9 +10,12 @@ angular.module('myApp').controller('AddEditFormController',
 
     $scope.save = function() {
       $scope.saving = true;
+      if (typeof $scope.damnForm.labels === 'string') {
+        $scope.damnForm.labels = $scope.damnForm.labels.split(',');
+      }
       if (id) {
         $scope.damnForm.$update().then(function () {
-            $location.path('/');
+            $location.path('/forms' + id + '/entries');
         }).finally(function() {
             $scope.saving = false;
         });

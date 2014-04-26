@@ -4,10 +4,10 @@
 
 <div class="list-section">
     <ul class="forms-list">
-        <li class="forms-list-item" ng-repeat="form in forms">
-          <a class="form-box" href="#/forms/{{ form._id.$oid }}/entries">
+        <li class="forms-list-item" ng-repeat="damnForm in damnForms">
+          <a class="form-box" href="#/forms/{{ damnForm._id.$oid }}/entries">
             <span class="form-box-title">
-                 {{ form.name }}
+                 {{ damnForm.name }}
             </span>
           </a>
         </li>
