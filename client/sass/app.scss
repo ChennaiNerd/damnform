@@ -27,8 +27,13 @@ $icon-font-path: "/bower_components/bootstrap-sass/vender/assets/fonts/";
   h1 {
     text-align: center;
     font-size: 32px;
-    color: #500135;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
     font: 3.5em "OpenSansBold",Helvetica,Arial,sans-serif;
+  }
+
+  .lead {
+    text-shadow: 1px 1px 1px #ebebeb;
   }
 }
 
