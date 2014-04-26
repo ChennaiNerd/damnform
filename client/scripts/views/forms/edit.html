@@ -1,6 +1,8 @@
 <div class="mini-container">
   <div class="page-header">
-      <h1 class="heading">{{ form.name }}</h1>
+      <h1 class="heading">{{ damnForm.name }}</h1>
+      <span class="text-muted">Payload URL:</span>
+      <span class="text-success">https://damnform.com/api/{{damnForm.apikey}}</span>
   </div>
 
   <div ng-include="'scripts/views/forms/form.html'"></div>
