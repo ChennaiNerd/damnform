@@ -35,3 +35,11 @@
 .form-box-title-new {
   color: #fcd9a1;
 }
+
+.form-horizontal .schema-list {
+  .row,
+  .form-group {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

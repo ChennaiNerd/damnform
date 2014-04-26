@@ -14,10 +14,12 @@ angular.module('myApp').controller('AddFormController',
     };
 
     $scope.addField = function () {
-        $scope.damnForm.schema.push({name: 'Name', type:"string", mandatory: false});
+        $scope.damnForm.schema.push({name: 'name', type:"string", mandatory: false});
     };
 
     $scope.removeField = function (index) {
         $scope.damnForm.schema.splice(index, 1);
     };
+
+    $scope.fieldTypes = ['string', 'number', 'email', 'url', 'twitter', 'mobile'];
 });
