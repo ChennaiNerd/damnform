@@ -50,21 +50,17 @@ def form(form_id):
 	if request.method == 'GET':
 		code = 200
 		form = database.get_form(form_id)
-		if not form:
-			form, code = '', 404
-		return form, code
 	elif request.method == 'PUT':
 		code = 200
 		form = database.update_form(form_id, request.data)
-		if not form:
-			form, code = '', 404
-		return form, code
 	elif request.method == 'DELETE':
 		code = 204
 		form = database.delete_form(form_id)
-		if not form:
-			code = 404
-		return '', code
+
+	if not form:
+		form, code = '', 404
+
+	return form, code
 
 #GET /api/forms/:id/entries?labels=
 @app.route('/api/forms/<form_id>/entries', methods=["GET"])
@@ -72,9 +68,8 @@ def entries(form_id):
 	'''
 	Function to GET entries created using particular form
 	'''
-	if request.method == 'GET':
-		labels = request.args.get('labels')
-		return database.get_entries(form_id, labels)	
+	labels = request.args.get('labels')
+	return database.get_entries(form_id, labels)	
 
 #GET, PUT, DELETE /api/forms/:id/entries/:id
 @app.route('/api/forms/<form_id>/entries/<entry_id>', methods=["GET", "PUT", "DELETE"])
@@ -85,20 +80,26 @@ def entry(form_id, entry_id):
 	if request.method == 'GET':
 		code = 200
 		entry = database.get_entry(entry_id)
-		if not entry:
-			entry, code = '', 404
-		return entry, code
 	elif request.method == 'PUT':
+		code = 200
 		entry = database.update_entry(entry_id, request.data) 
-		if not entry:
-			entry, code = '', 404
-		return entry, code
 	elif request.method == 'DELETE':
 		code = 204
 		entry = database.delete_entry(entry_id)
-		if not entry:
-			code = 404
-		return '', code
+	
+	if not entry:
+		entry, code = '', 404
+
+	return entry, code
+
+#POST /api/forms/:id/sendmail
+app.route('/api/forms/<form_id>/sendmail', methods=["POST"])
+def sendmail(form_id):
+	'''
+	Function to send mail to entries under form based on label criteria
+	'''
+	labels = request.args.get('labels')
+	#TODO Add code to sendmail
 	
 if __name__ == '__main__':
 	app.run(debug = True, host = '0.0.0.0', port = 8000)
