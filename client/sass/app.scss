@@ -10,22 +10,25 @@ $icon-font-path: "/bower_components/bootstrap-sass/vender/assets/fonts/";
 @import "sticky_footer";
 
 @media (min-width: 950px) {
-  .container {
+  .medium-container {
     max-width: 910px;
+    margin: 0 auto;
   }
 }
 
 // Index page
-.container .jumbotron {
+.jumbotron {
   background-color: #fff;
+  background-image: url(/images/trianglify-background.svg);
   border-bottom: 1px solid #eee;
-  padding-bottom: 30px;
-  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-top: 60px;
 
   h1 {
     text-align: center;
     font-size: 32px;
     color: #500135;
+    font: 3.5em "OpenSansBold",Helvetica,Arial,sans-serif;
   }
 }
 
