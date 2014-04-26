@@ -45,7 +45,8 @@ def get_form(form_id):
 	return json.dumps(forms.find_one({'_id': ObjectId(form_id)}), default=json_util.default)
 
 def update_form(form_id, form_data):
-	return forms.find_and_modify(query={'_id': ObjectId(form_id)}, update=json.loads(form_data), new=True)
+	modified_form = forms.find_and_modify(query={'_id': ObjectId(form_id)}, update=json.loads(form_data), new=True)
+	return json.dumps(modified_form, default=json_util.default)
 	
 def delete_form(form_id):
 	return forms.find_and_modify(query={'_id': ObjectId(form_id)}, remove=True)
@@ -56,6 +57,16 @@ def get_entries(form_id, labels):
 	for result in resultset:
 		resultlist.append(json.dumps(result, default=json_util.default))
 	return '[' + ', '.join(resultlist) + ']'
- 
+
+def get_entry(entry_id):
+	return json.dumps(entries.find_one({'_id': ObjectId(entry_id)}), default=json_util.default)
+
+def update_entry(entry_id, form_data):
+	modified_entry = entries.find_and_modify(query={'_id': ObjectId(entry_id)}, update=json.loads(form_data), new=True)
+	return json.dumps(modified_entry, default=json_util.default)
+
+def delete_entry(entry_id):
+	return entries.find_and_modify(query={'_id': ObjectId(entry_id)}, remove=True)
+
 if __name__ == '__main__':
 	pass
