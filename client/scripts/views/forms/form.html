@@ -1,0 +1,56 @@
+<form name="form" class="form-horizontal">
+
+    <div class="row">
+        <div class="col-md-5">
+          <div class="form-group">
+            <label for="name">Form Name</label>
+            <input class="form-control" type="text" id="name" name="name" ng-model="damnForm.name" required />
+          </div>
+          <span ng-show="form.name.$error.required" class="help-block">
+              Required
+          </span>
+        </div>
+    </div>
+
+    <hr class="ruler">
+    <h2 class="subheading">Form Fields
+        <a class="btn btn-warning btn-xs" href="" ng-click="addField()"> <i class="fa fa-plus"></i> Add Field</a>
+    </h2>
+    <div ng-repeat="field in damnForm.schema">
+        <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="fieldName">Field Name</label>
+                <input class="form-control" type="text" id="fieldName" name="fieldName" ng-model="field.name" required />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="fieldType">Field Type</label>
+                <input class="form-control" type="text" id="fieldType" name="fieldType" ng-model="field.type" required />
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="fieldMandatory">Field Type</label>
+                <input class="form-control" type="text" id="fieldMandatory" name="fieldMandatory" ng-model="field.mandatry" required />
+              </div>
+            </div>
+            <div class="col-md-1">
+                <a class="text-danger btn-remove" href="" ng-click="removeField($index)"> <i class="fa fa-times-circle"></i> </a>
+            </div>
+        </div>
+    </div>
+
+
+    <hr class="ruler">
+
+    <div class="form-actions">
+        <a ng-click="save()" class="btn btn-success" ng-disabled="saving || form.$invalid">
+            <i class="icon-ok-sign" ng-hide="saving"></i>
+            <i class="icon-spinner icon-spin ng-hide" ng-show="saving"></i>
+            <span>Save</span>
+        </a>
+        <a class="btn btn-default" href="#/">Cancel</a>
+    </div>
+</form>

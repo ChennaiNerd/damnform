@@ -16,7 +16,9 @@
           <p class="lead"> Loading...</p>
       </div>
 
-      <div ng-view=''></div>
+      <div class="container">
+        <div ng-view=''></div>
+      </div>
     </div>
 
     <section id="footer" class="footer">
@@ -37,7 +39,13 @@
     <script src="scripts/vendor/ui-bootstrap-tpls.min.js"></script>
 
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/showcontroller.js"></script>
-    <script src="scripts/resources/sample.js"></script>
+    <script src="scripts/controllers/forms/listcontroller.js"></script>
+    <script src="scripts/controllers/forms/addcontroller.js"></script>
+    <script src="scripts/controllers/forms/editcontroller.js"></script>
+    <script src="scripts/controllers/entries/listcontroller.js"></script>
+    <script src="scripts/controllers/entries/showcontroller.js"></script>
+
+    <script src="scripts/resources/forms.js"></script>
+    <script src="scripts/resources/entries.js"></script>
 </body>
 </html>

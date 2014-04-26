@@ -89,3 +89,14 @@ a:focus {
         margin: 20px auto 0;
     }
 }
+
+
+.page-header {
+  border-bottom: none;
+
+  .heading {
+    font-size: 22px;
+    color: #475b74;
+    margin: 20px 0;
+  }
+}

@@ -1,0 +1,37 @@
+// Forms
+
+.forms-list {
+  padding-left: 0;
+}
+
+.forms-list-item {
+  list-style: none;
+}
+
+.form-box {
+  background-color: #475B74;
+  height: 90px;
+  margin: 0 16px 16px 0;
+  font-size: 16px;
+  line-height: 22px;
+  display: inline-block;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 3px;
+  font-weight: bold;
+  min-height: 18px;
+  padding: 8px 12px 8px 12px;
+  position: relative;
+  text-decoration: none;
+}
+
+.form-box-title {
+  color: #fff;
+  padding-top: 20px;
+  display: inline-block;
+  font-size: 30px;
+}
+
+.form-box-title-new {
+  color: #fcd9a1;
+}

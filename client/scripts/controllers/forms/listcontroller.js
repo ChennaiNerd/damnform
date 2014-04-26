@@ -1,6 +1,6 @@
 angular.module('myApp').controller('ListFormsController',
-        function($scope, $rootScope, $routeParams) {
+        function($scope, Forms) {
 
-    // Write your controller stuff here
-
+    // Load students
+    $scope.forms = Forms.query();
 });

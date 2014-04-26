@@ -7,6 +7,7 @@ $icon-font-path: "/bower_components/bootstrap-sass/vender/assets/fonts/";
 @import "header";
 @import "footer";
 @import "base";
+@import "forms";
 @import "sticky_footer";
 
 @media (min-width: 950px) {
@@ -39,7 +40,7 @@ $icon-font-path: "/bower_components/bootstrap-sass/vender/assets/fonts/";
 
 .marketing-heading {
   text-align: center;
-  color: #FF6729;
+  color: #ff6729;
   font-weight: 300;
   margin-bottom: 40px;
 }
