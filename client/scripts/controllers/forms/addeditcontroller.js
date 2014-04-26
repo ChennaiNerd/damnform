@@ -34,5 +34,5 @@ angular.module('myApp').controller('AddEditFormController',
       $scope.damnForm.schema.splice(index, 1);
     };
 
-    $scope.fieldTypes = ['string', 'number', 'email', 'url', 'twitter', 'mobile'];
+    $scope.fieldTypes = ['string', 'number', 'boolean', 'email', 'url', 'twitter', 'mobile'];
 });
