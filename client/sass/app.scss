@@ -3,8 +3,8 @@ $icon-font-path: "/bower_components/bootstrap-sass/vender/assets/fonts/";
 @import 'bootstrap-sass/vendor/assets/stylesheets/bootstrap';
 @import "font-awesome/scss/font-awesome";
 
-@import "ngDialog.min.css";
-@import "ngDialog-theme-default.min.css";
+@import "ngDialog";
+@import "ngDialog-theme-default";
 
 @import "variables";
 @import "header";
