@@ -98,8 +98,9 @@ def sendmail(form_id):
 	'''
 	Function to send mail to entries under form based on label criteria
 	'''
-	labels = request.args.get('labels')
-	#TODO Add code to sendmail
+	mail_info = json.loads(request.data)
+	#TODO send mail to reciepients
+
 	
 if __name__ == '__main__':
 	app.run(debug = True, host = '0.0.0.0', port = 8000)

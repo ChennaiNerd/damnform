@@ -20,14 +20,16 @@ def save_entry(apikey, value_in_form, value_in_data, labels):
 	print "value_in_data = ", value_in_data
 	print "labels = ", labels
 	if value_in_form:
-		dict_form_data = value_in_form
+		dict_form_data = dict(value_in_form)
 	elif value_in_data:
 		dict_form_data = json.loads(value_in_data)
 	form_id = get_form_id(apikey)
+	print 'form_id===============', form_id
 	if not form_id:
 		return ''
 	dict_form_data["form_id"] = form_id
 	dict_form_data["labels"] = labels
+	print 'dict_form_data 111111111111111111', dict_form_data
 	_id = entries.save(dict_form_data)
 	return json.dumps(entries.find_one({'_id': ObjectId(_id)}), default=json_util.default)
 
