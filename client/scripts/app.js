@@ -11,11 +11,24 @@ angular.module('myApp', [
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'scripts/views/home.html',
+                templateUrl: 'scripts/views/forms/list.html',
+                controller: 'ListFormsController'
             })
-            .when('/hello', {
-                templateUrl: 'scripts/views/hello.html',
-                controller: 'ShowController'
+            .when('/forms/new', {
+                templateUrl: 'scripts/views/forms/add.html',
+                controller: 'AddFormController'
+            })
+            .when('/forms/:id/edit', {
+                templateUrl: 'scripts/views/forms/edit.html',
+                controller: 'EditFormController'
+            })
+            .when('/forms/:id/entries', {
+                templateUrl: 'scripts/views/entries/list.html',
+                controller: 'ListEntriesController'
+            })
+            .when('/forms/:id/entries/:id', {
+                templateUrl: 'scripts/views/entries/show.html',
+                controller: 'ShowEntryController'
             })
 
             .otherwise({redirectTo: function() { return '/'; }});
