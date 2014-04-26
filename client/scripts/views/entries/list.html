@@ -1,0 +1,36 @@
+<div class="container medium-container search">
+  <form id="form" ng-submit='search()'>
+    <div class="row">
+      <div class="col-md-10">
+        <input class="form-control" type="text" name="search"
+           ng-model="search" placeholder="labels, any thing to be searched">
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-primary btn-search" type="submit"><i class="fa fa-search"></i> Search</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="container">
+  <div class="row main-row">
+    <div class="col-md-3 sidepane-row">
+      <div ng-repeat="label in form.lables">
+        <span class="label">{{label}}</span>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <table class="table">
+          <tr ng-repeat="mandatory in mandatories">
+            <th>
+              {{mandatory}}
+            </th>
+          </tr>
+          <tr ng-repeat="entry in entries">
+            <td ng-repeat="mandatory in mandatories">
+              {{entry[mandatory]}}
+            </td>
+          </tr>
+       </table>
+    </div>
+  </div>
+</div>
