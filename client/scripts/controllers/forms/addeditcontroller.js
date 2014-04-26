@@ -15,13 +15,13 @@ angular.module('myApp').controller('AddEditFormController',
       }
       if (id) {
         $scope.damnForm.$update().then(function () {
-            $location.path('/forms' + id + '/entries');
+            $location.path('/forms/' + id + '/entries');
         }).finally(function() {
             $scope.saving = false;
         });
       } else {
         $scope.damnForm.$save().then(function () {
-            $location.path('/forms' + id + '/entries');
+            $location.path('/forms/' + id + '/entries');
         }).finally(function() {
             $scope.saving = false;
         });

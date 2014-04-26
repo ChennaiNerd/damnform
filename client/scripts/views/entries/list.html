@@ -21,17 +21,18 @@
     </div>
   </div>
 </div>
+<hr class="ruler ruler-lg">
 <div class="container">
   <div class="row main-row">
     <div class="col-md-3 sidepane-row">
-      <div ng-repeat="label in damnForm.labels">
-        <span class="">{{label}}</span>
-      </div>
+      <li class="nav" ng-repeat="label in damnForm.labels">
+        <a ng-click="search(label)">{{label}}</a>
+      </li>
     </div>
     <div class="col-md-9">
-      <table class="table">
-          <tr ng-repeat="mandatory in mandatories">
-            <th>
+      <table class="table table-striped">
+          <tr>
+            <th ng-repeat="mandatory in mandatories">
               {{mandatory}}
             </th>
           </tr>

@@ -22,17 +22,17 @@
   background-position: center center;
   border-radius: 3px;
   font-weight: bold;
-  min-height: 18px;
   padding: 8px 12px 8px 12px;
   position: relative;
   text-decoration: none;
+  text-align: center;
 }
 
 .form-box-title {
   color: #fff;
   padding-top: 20px;
   display: inline-block;
-  font-size: 30px;
+  font-size: 25px;
   line-height: 30px;
 }
 
@@ -50,4 +50,9 @@
 
 .search-container {
   margin-top: 40px !important;;
+}
+
+.ruler-lg {
+  margin-left: -80px;
+  margin-right: -80px;
 }
