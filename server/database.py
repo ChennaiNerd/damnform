@@ -26,14 +26,14 @@ def save_entry(apikey, value_in_form, value_in_data, labels):
 	dict_form_data["form_id"] = get_form_id(apikey)
 	dict_form_data["labels"] = labels
 	_id = entries.save(dict_form_data)
-	return json.dumps(entries.find_one({'_id': ObjectId(_id)}),  default=json_util.default)
+	return json.dumps(entries.find_one({'_id': ObjectId(_id)}), default=json_util.default)
 
 def create_form(form_data):
 	print "form_data = ", form_data
 	dict_form_data = json.loads(form_data)
 	dict_form_data['apikey'] = str(uuid.uuid4())
 	_id = forms.save(dict_form_data)
-	return json.dumps(forms.find_one({'_id': ObjectId(_id)}),  default=json_util.default)
+	return json.dumps(forms.find_one({'_id': ObjectId(_id)}), default=json_util.default)
 
 def get_all_forms():
 	return '[' + ', '.join([json.dumps(result, default=json_util.default) for result in forms.find()]) + ']'
@@ -41,5 +41,14 @@ def get_all_forms():
 def get_form_id(apikey):
 	return str(forms.find_one({'apikey':apikey})['_id'])
 	 
+def get_form(form_id):
+	return json.dumps(forms.find_one({'_id': ObjectId(form_id)}), default=json_util.default)
+
+def update_form(form_id, form_data):
+	return forms.find_and_modify(query={'_id': ObjectId(form_id)}, update=json.loads(form_data), new=True)
+	
+def delete_form(form_id):
+	return forms.find_and_modify(query={'_id': ObjectId(form_id)}, remove=True)
+
 if __name__ == '__main__':
 	pass
