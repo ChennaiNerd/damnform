@@ -54,5 +54,15 @@ def form(form_id):
 		database.delete_form(form_id)
 		return '', 204
 
+#GET /api/forms/:id/entries?labels=
+@app.route('/api/forms/<form_id>/entries', methods=["GET"])
+def entries(form_id):
+	'''
+	Function to GET entries created using particular form
+	'''
+	if request.method == 'GET':
+		labels = request.args.get('labels')
+		return database.get_entries(form_id, labels)	
+
 if __name__ == '__main__':
 	app.run(debug = True, host = '0.0.0.0', port = 8000)

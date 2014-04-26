@@ -50,5 +50,12 @@ def update_form(form_id, form_data):
 def delete_form(form_id):
 	return forms.find_and_modify(query={'_id': ObjectId(form_id)}, remove=True)
 
+def get_entries(form_id, labels):
+	resultlist = []
+	resultset = entries.find({'form_id': form_id, 'labels' : {'$in': labels.split(',')}})
+	for result in resultset:
+		resultlist.append(json.dumps(result, default=json_util.default))
+	return '[' + ', '.join(resultlist) + ']'
+ 
 if __name__ == '__main__':
 	pass
