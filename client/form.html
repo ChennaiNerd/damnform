@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damn Form</title>
+    <meta name="description" content="Backend for Forms">
+    <link rel="stylesheet" href="/css/app.css" type="text/css" />
+</head>
+	<body>
+		<!-- Landing Page Form -->
+		<form method="post" action="#">
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" name="myemail" />
+			<div>
+		</form>
+
+		<!-- Simple Form -->
+		<form method="post" action="#">
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input class="form-control" type="text" name="myname" />
+
+				<label for="email">Email</label>
+				<input class="form-control" type="email" name="myemail" />
+
+				<label for="name">Mobile</label>
+				<input class="form-control" type="mobile" name="mymobile" />
+			</div>
+		</form>
+
+		<!-- Contact Form -->
+		<form method="post" action="#">
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input class="form-control" type="text" name="myname" />
+
+				<label for="email">Email</label>
+				<input class="form-control" type="email" name="myemail" />
+
+				<label for="mobile">Contact Number (Optional)</label>
+				<input class="form-control" type="mobile" name="mymobile" />
+
+				<label for="subject">Subject</label>
+				<input class="form-control" type="text" name="mymobile" />
+
+				<label for="message">Message</label>
+				<textarea rows="20" cols="40"></textarea>
+			</div>
+		</form>
+	</body>
+</html>
+
