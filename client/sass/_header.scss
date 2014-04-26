@@ -1,23 +1,14 @@
 .navbar-custom {
     margin-bottom: 0;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    background-color: #f8f8f2;
-    box-shadow: 0 0 2px #999;
+    background-color: #fff;
+    border-bottom: 1px solid #dfdfdf;
 }
 
-.navbar-custom li {
-    border-left: solid 1px rgba(255, 255, 255, 0.5);
-    border-right: solid 1px #dfe2e7;
-}
-
-.navbar-custom a {
+.navbar-custom li a {
     color: #333;
-}
-
-.navbar-custom .nav li a {
-    -webkit-transition: background .3s ease-in-out;
-    -moz-transition: background .3s ease-in-out;
-    transition: background .3s ease-in-out;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .navbar-custom .nav li a:hover,
@@ -30,6 +21,9 @@
 .navbar-brand {
     font-weight: 700;
     color: $brand-color !important;
+    height: 60px;
+    padding-top: 0;
+    margin-top: -10px;
 
     &:focus,
     &:hover,
@@ -54,7 +48,7 @@
 }
 
 .navbar-text {
-    color: #fff;
+    color: #888;
 
     img {
         width: 24px;

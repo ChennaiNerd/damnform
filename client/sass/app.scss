@@ -8,3 +8,53 @@ $icon-font-path: "/bower_components/bootstrap-sass/vender/assets/fonts/";
 @import "footer";
 @import "base";
 @import "sticky_footer";
+
+@media (min-width: 950px) {
+  .medium-container {
+    max-width: 910px;
+    margin: 0 auto;
+  }
+}
+
+// Index page
+.jumbotron {
+  background-color: #fff;
+  background-image: url(/images/trianglify-background.svg);
+  border-bottom: 1px solid #eee;
+  padding-bottom: 50px;
+  padding-top: 60px;
+
+  h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #500135;
+    font: 3.5em "OpenSansBold",Helvetica,Arial,sans-serif;
+  }
+}
+
+.marketing {
+  h4 {
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    font-weight: 300;
+  }
+
+}
+
+// Signin page
+.form-signin {
+  font-size: 22px;
+  max-width: 360px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ebebeb;
+  border-radius: 4px;
+}
+
+.form-signin-heading {
+  margin-bottom: 20px;
+}
