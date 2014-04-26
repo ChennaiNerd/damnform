@@ -13,6 +13,14 @@ angular.module('myApp').controller('ListEntriesController',
     });
     $scope.damnFormEntries = Entries.query({ formId : id });
 
+    $scope.searchEntries = function (label) {
+      if (label) {
+        $scope.damnFormEntries = Entries.query({ formId : id, labels: label });
+      } else if ($scope.search) {
+        $scope.damnFormEntries = Entries.query({ formId : id, search: $scope.search });
+      }
+    }
+
     $scope.deleteForm = function () {
       if (!confirm('Are you sure to delete?')) {
         return;
