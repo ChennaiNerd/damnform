@@ -20,12 +20,13 @@ def create_entry(key):
 	''' 
 	This url will be used by the admin user for creating entry
 	'''
+	code = 201
 	labels = request.args.get('labels')
-	print labels
-	print request.form
-	print request.data
 	if database.is_valid_form_data(key, request.form, request.data):
-		return database.save_entry(key, request.form, request.data, labels), 201
+		new_entry = database.save_entry(key, request.form, request.data, labels)
+		if new_entry == '':
+			code = 404
+		return new_entry, code
 	else:
 		return "Invalid form data", 400
 
@@ -47,9 +48,12 @@ def form(form_id):
 	Function to do GET, PUT, DELETE on a particular form
 	'''
 	if request.method == 'GET':
-		return database.get_form(form_id)
+		code = 200
+		form = database.get_form(form_id)
+		if form == '':
+			code = 404
+		return form, code
 	elif request.method == 'PUT':
-		print 'PUT___________________ FORM'
 		return database.update_form(form_id, request.data)
 	elif request.method == 'DELETE':
 		database.delete_form(form_id)
