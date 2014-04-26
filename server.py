@@ -23,8 +23,9 @@ def create_entry(key):
 	labels = request.args.get('labels')
 	print labels
 	print request.form
-	if database.is_valid_form_data(key, request.form):
-		return database.save_entry(key, request.form, labels)
+	print request.data
+	if database.is_valid_form_data(key, request.form, request.data):
+		return database.save_entry(key, request.form, request.data, labels)
 	else:
 		return "Invalid form data", 400
 
