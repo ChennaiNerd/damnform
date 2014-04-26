@@ -7,18 +7,20 @@
     <meta name="description" content="Backend for Forms">
     <link rel="stylesheet" href="/css/app.css" type="text/css" />
 </head>
-	<body>        
+	<body>
+    <div class="container">
+      <h1>Damn Form Demo</h1>
 			<ul class="nav nav-tabs">
 			  <li class="active"><a href="#event" data-toggle="tab">Event Form</a></li>
 			  <li><a href="#landing" data-toggle="tab">Landing Page</a></li>
-			  <li><a href="#event" data-toggle="tab">Event Form</a></li>
+			  <li><a href="#contact" data-toggle="tab">Contact Form</a></li>
 			</ul>
 
 			<div class="tab-content">
 			  <div class="tab-pane active" id="event">
 			  	<br/>
 		  		<!-- Event Form -->
-		  		<form class="form-horizontal" method="post" action="#">
+		  		<form class="form-horizontal" method="post" action="http://localhost:8000/api/eabe39d6-0f99-4a2d-bcf9-ed8e92664ccc">
 		  		  <div class="form-group">
 		  		    <label for="Name" class="col-sm-2 control-label">Name</label>
 		  		    <div class="col-sm-4">
@@ -66,7 +68,7 @@
 			  <div class="tab-pane" id="landing">
 			  	<br/>
 			  	<!-- Landing Page Form -->
-			  	<form class="form-horizontal" method="post" action="#">
+			  	<form class="form-horizontal" method="post" action="http://localhost:8000/api/eabe39d6-0f99-4a2d-bcf9-ed8e92664ccc">
 			  	  <div class="form-group">
 			  	    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 			  	    <div class="col-sm-4">
@@ -86,7 +88,7 @@
 			  <div class="tab-pane" id="contact">
 			  	<br/>
 			  	<!-- Contact Form -->
-			  	<form class="form-horizontal" method="post" action="#">
+			  	<form class="form-horizontal" method="post" action="http://localhost:8000/api/eabe39d6-0f99-4a2d-bcf9-ed8e92664ccc">
 			  	  <div class="form-group">
 			  	    <label for="Name" class="col-sm-2 control-label">Name</label>
 			  	    <div class="col-sm-4">
@@ -126,11 +128,10 @@
 
 			  </div>
 			</div>
- 	
+  </div>
 
 
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	</body>
 </html>
-

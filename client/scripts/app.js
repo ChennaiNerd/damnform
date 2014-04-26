@@ -6,6 +6,7 @@ angular.module('myApp', [
     'ngResource',
     'ngCookies',
     'ngSanitize',
+    'ngDialog',
     'ui.bootstrap'
     ])
     .config(function ($routeProvider) {

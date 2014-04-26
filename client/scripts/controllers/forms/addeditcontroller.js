@@ -38,4 +38,50 @@ angular.module('myApp').controller('AddEditFormController',
     };
 
     $scope.fieldTypes = ['string', 'number', 'boolean', 'email', 'url', 'twitter', 'mobile'];
+
+    $scope.parseForm = function (html) {
+      var schema = [];
+
+      //Parse Input Tags
+      var isMandatory = false;
+      var inputTags = html.match(/<input.*\/>/g);
+      if (inputTags) {
+        for(var index in inputTags) {
+          var inputTag = inputTags[index],
+            type = inputTag.match(/type=\"(.*?)\"/)[1],
+            name = inputTag.match(/name=\"(.*?)\"/)[1],
+            mandatoryMatch = inputTag.match(/required/);
+
+            if (type && name) {
+              var fieldType = type;
+              if (fieldType === 'text') {
+                fieldType = 'string';
+              } else if (fieldType === 'checkbox') {
+                fieldType = 'boolean';
+              }
+              schema.push({name: name, type: fieldType, mandatory: mandatoryMatch ? true : false});
+            }
+        }
+      }
+
+      //Parse TextAreas and Select Tag
+      var textareaTags = html.match(/<textarea .*>.*<\/textarea>|<select .*>/g);
+      if (textareaTags) {
+        for(var index in textareaTags) {
+          var textareaTag = textareaTags[index],
+            name = textareaTag.match(/name=\"(.*?)\"/)[1],
+            mandatoryMatch = textareaTag.match(/required/);
+            if (name) {
+              schema.push({name:name, type: string, mandatory: mandatoryMatch ? true : false});
+            }
+
+        }
+      }
+
+      console.log(schema);
+      if (schema.length > 0) {
+        $scope.damnForm.schema = schema;
+      }
+      return schema;
+    }
 });
