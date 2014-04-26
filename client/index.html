@@ -3,22 +3,85 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
-    <meta name="description" content="Your description">
+    <title>Damn Form</title>
+    <meta name="description" content="Backend for Forms">
     <link rel="stylesheet" href="/css/app.css" type="text/css" />
 </head>
 
 <body>
-    <div ng-include="'scripts/views/header.html'"></div>
-
-    <div id="wrap">
-      <div class="app-progress" ng-hide="true">
-          <p class="lead"> Loading...</p>
+    <div class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="/images/damnform.png" alt="Damn Form" /></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/signin.html">Sign in</a></li>
+            <li><a href="/about.html">About</a></li>
+        </div><!--/.nav-collapse -->
       </div>
-
-      <div ng-view=''></div>
     </div>
 
+    <div class="container">
+
+      <section class="jumbotron">
+          <h1>Backend for Forms</h1>
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="lead">
+                Build your customized static pages with forms and Don't worry about backend.
+                DamnForm collects all form information and helps to ease the workflow
+                of sending mails. DamnForm made static forms easier.
+              </p>
+            </div>
+            <div class="col-sm-6">
+              <form class="form-signup" role="form" action="/app">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Full Name" required="" autofocus="">
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Email address" required="">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Password" required="">
+                </div>
+                <button class="btn btn-primary" type="submit">Sign up and get started</button>
+              </form>
+            </div>
+          </div>
+      </section>
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>No Backend</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Labels your entries</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Sent Notification to users</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h4>Customized mail workflow</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Unlimited forms</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Mutliple users</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+      </div>
+    </div>
     <section id="footer" class="footer">
         <div class="container text-center">
             <p class="row">
@@ -28,16 +91,6 @@
     </section>
 
     <script src="bower_components/jquery/jquery.min.js"></script>
-    <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap.js"></script>
-    <script src="bower_components/angular-route/angular-route.min.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/showcontroller.js"></script>
-    <script src="scripts/resources/sample.js"></script>
 </body>
 </html>

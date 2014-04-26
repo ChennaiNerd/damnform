@@ -1,6 +1,6 @@
-# Hacker Boilerplate
+# Damn Form
 
-Boilerplate code for hacker who want to hack with Python, MongoDB and AngularJS
+Backend for Form from Developer for Developer and Designer
 
 ### Install dependencies
 
@@ -25,4 +25,5 @@ To compile and watch for sass file changes
 
 ### Run python server
 
+    export PYTHONPATH=$(pwd)/server/
     python server.py

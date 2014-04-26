@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damn Form</title>
+    <meta name="description" content="Backend for Forms">
+    <link rel="stylesheet" href="/css/app.css" type="text/css" />
+</head>
+
+<body>
+    <div class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="/images/damnform.png" alt="Damn Form" /></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/signin.html">Signin</a></li>
+            <li><a href="/about.html">About</a></li>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+      <form class="form-signin" role="form" action="/app">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Email address" required="">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Password" required="">
+        </div>
+        <button class="btn btn-primary" type="submit">Sign in</button>
+      </form>
+    </div>
+
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap.js"></script>
+</body>
+</html>
