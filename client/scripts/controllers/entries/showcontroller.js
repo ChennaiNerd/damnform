@@ -1,6 +1,8 @@
 angular.module('myApp').controller('ShowEntryController',
-        function($scope, $rootScope, $routeParams) {
+        function($scope, $rootScope, $routeParams, Entries) {
 
-    // Write your controller stuff here
+  var formId = $routeParams.formId;
+  var id = $routeParams.id;
+  $scope.damnFormEntry = Entries.get({ formId: formId, id : id });
 
 });

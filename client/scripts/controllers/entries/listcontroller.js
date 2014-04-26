@@ -1,5 +1,5 @@
 angular.module('myApp').controller('ListEntriesController',
-        function($scope, $rootScope, $routeParams, Forms, Entries) {
+        function($scope, $location, $routeParams, Forms, Entries) {
 
     var id = $routeParams.id;
     var mandatories = $scope.mandatories = [];
@@ -12,5 +12,14 @@ angular.module('myApp').controller('ListEntriesController',
         console.log(mandatories);
       }
     });
+
+    $scope.deleteForm = function () {
+      if (!confirm('Are you sure to delete?')) {
+        return;
+      }
+      $scope.damnForm.$delete().then(function () {
+          $location.path('/');
+      });
+    }
 
 });

@@ -1,15 +1,25 @@
-<div class="container medium-container search">
-  <form id="form" ng-submit='search()'>
-    <div class="row">
-      <div class="col-md-10">
-        <input class="form-control" type="text" name="search"
-           ng-model="search" placeholder="labels, any thing to be searched">
-      </div>
-      <div class="col-md-2">
-        <button class="btn btn-primary btn-search" type="submit"><i class="fa fa-search"></i> Search</button>
-      </div>
+<div class="container search-container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>{{damnForm.name}}
+        <a href="#/forms/{{ damnForm._id.$oid }}/edit"><i class="fa fa-pencil"></i></a>
+        <a ng-click="deleteForm()"><i class="fa fa-trash-o"></i></a>
+      </h3>
     </div>
-  </form>
+    <div class="col-md-6 pull-right">
+      <form id="form" ng-submit='search()'>
+        <div class="row">
+          <div class="col-md-10">
+            <input class="form-control" type="text" name="search"
+               ng-model="search" placeholder="labels, any thing to be searched">
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-primary btn-search" type="submit"><i class="fa fa-search"></i> Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 <div class="container">
   <div class="row main-row">
