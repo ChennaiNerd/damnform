@@ -29,8 +29,7 @@ def create_form(form_data):
 	return json.dumps(forms.find_one({'_id': ObjectId(_id)}),  default=json_util.default)
 
 def get_all_forms():
-	pass	
-	
+	return '[' + ', '.join([json.dumps(result, default=json_util.default) for result in forms.find()]) + ']'
 
 if __name__ == '__main__':
 	pass
