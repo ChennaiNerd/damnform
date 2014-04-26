@@ -23,6 +23,7 @@
     color: $brand-color !important;
     height: 60px;
     padding-top: 0;
+    margin-top: -10px;
 
     &:focus,
     &:hover,
@@ -47,7 +48,7 @@
 }
 
 .navbar-text {
-    color: #fff;
+    color: #888;
 
     img {
         width: 24px;
