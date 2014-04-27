@@ -21,7 +21,7 @@ angular.module('myApp').controller('AddEditFormController',
         });
       } else {
         $scope.damnForm.$save().then(function () {
-            $location.path('/forms/' + id + '/entries');
+            $location.path('/');
         }).finally(function() {
             $scope.saving = false;
         });
