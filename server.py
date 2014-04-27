@@ -106,8 +106,8 @@ def entry(form_id, entry_id):
 
 	return entry, code
 
-#GET /image/:email
-@app.route('/image/<email_id>', methods=["GET"])
+#GET /avatar/:email
+@app.route('/avatar/<email_id>', methods=["GET"])
 def getGravatar(email_id):
 	'''
 	Function to calculate the md5 hash of email_id & return gravatar image URL
@@ -116,7 +116,7 @@ def getGravatar(email_id):
 	m.update(email_id)
 	myhash = m.hexdigest()
 	url = 'https://gravatar.com/avatar/' + myhash
-	return url
+	return redirect(url)
 
 #POST /api/forms/:id/sendmail
 app.route('/api/forms/<form_id>/sendmail', methods=["POST"])
