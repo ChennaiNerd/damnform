@@ -77,5 +77,14 @@
       text-decoration: none;
       background-color: #fff;
     }
+
+    &.active {
+      color: $brand-color;
+    }
   }
+}
+
+.table thead {
+  background-color: #e3e3e3;
+  border-color: 1px solid #fafafa;
 }

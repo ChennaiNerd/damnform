@@ -26,22 +26,37 @@
   <div class="row main-row">
     <div class="col-sm-2 nav sidepane">
       <h3>Labels</h3>
+      <li class="sidepane-list-item">
+        <a ng-click="searchEntries()" ng-class="{active: isCurrentLabel('All')}">All</a>
+      </li>
       <li class="sidepane-list-item" ng-repeat="label in damnForm.labels">
-        <a ng-click="searchEntries(label)">{{label}}</a>
+        <a ng-click="searchEntries(label)" ng-class="{active: isCurrentLabel(label)}">{{label}}</a>
       </li>
     </div>
     <div class="col-sm-10">
-      <table class="table table-striped">
-          <tr>
-            <th ng-repeat="mandatory in mandatories">
-              {{mandatory}}
-            </th>
-          </tr>
-          <tr ng-repeat="entry in entries">
-            <td ng-repeat="mandatory in mandatories">
-              {{entry[mandatory]}}
-            </td>
-          </tr>
+      <p>
+        {{damnFormEntries.length}} entries of <span class="text-warning">{{currentLabel}}</span>
+      </p>
+      <table class="table">
+          <thead>
+            <tr>
+              <th ng-repeat="mandatory in mandatories">
+                {{mandatory}}
+              </th>
+              <th>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="entry in damnFormEntries">
+              <td ng-repeat="mandatory in mandatories">
+                {{entry[mandatory]}}
+              </td>
+              <td>
+                <a ng-click="show(entry)">View</a>
+              </td>
+            </tr>
+          </tbody>
        </table>
     </div>
   </div>
