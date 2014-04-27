@@ -37,7 +37,7 @@ def create_entry(key):
 		if not request.data:
 			email_field = database.get_email_field(key)
 			welcome_mail_info = database.get_welcome_mail_info(key)
-			send_welcome_mail(new_entry[email_field], welcome_mail_info)
+			send_welcome_mail(json.loads(new_entry)[email_field], welcome_mail_info)
 
 			redirect_url = database.get_thankyou_url(key)
 			if redirect_url:
@@ -123,7 +123,7 @@ def getGravatar(email_id):
 	return redirect(url)
 
 #POST /api/forms/:id/sendmail
-app.route('/api/forms/<form_id>/sendmail', methods=["POST"])
+@app.route('/api/forms/<form_id>/sendmail', methods=["POST"])
 def sendmail(form_id):
 	'''
 	Function to send mail to entries under form based on label criteria
@@ -141,9 +141,9 @@ def compose_mail(to, subject, message):
 				#"html": "<html>Testing HTML <b>Bold</b><i>Italics</i><u>Underline</u></html>"
 			}
 
-def send_welcome_mail(welcome_mail_info):
-	#compose_mail(
-	pass
+def send_welcome_mail(mail_id, welcome_mail_info):
+	mail = compose_mail([mail_id], welcome_mail_info['welcomeSubject'], welcome_mail_info['welcomeMsg'])
+	mailgun.send_simple_message(mail)
 	
 if __name__ == '__main__':
 	app.run(debug = True, host = '0.0.0.0', port = 8000)
