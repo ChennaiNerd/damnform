@@ -34,7 +34,7 @@ def create_entry(key):
 		if not new_entry:
 			return '', 404
 		if not request.data:
-			redirect_url = json.loads(new_entry).get('thankyouUrl', None)
+			redirect_url = database.get_thankyou_url(key)
 			if redirect_url:
 				return redirect(redirect_url)
 			else:

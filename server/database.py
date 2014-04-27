@@ -39,6 +39,10 @@ def create_form(form_data):
 def get_all_forms():
 	return '[' + ', '.join([json.dumps(result, default=json_util.default) for result in forms.find()]) + ']'
 
+def get_thankyou_url(apikey):
+	form = forms.find_one({'apikey': apikey})
+	return form.get('thankyouUrl', None)
+
 def get_form_id(apikey):
 	form = forms.find_one({'apikey':apikey})
 	return form['_id'] if form else None
