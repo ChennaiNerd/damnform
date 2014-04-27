@@ -34,6 +34,9 @@
       </li>
     </div>
     <div class="col-sm-10">
+      <p class="pull-right">
+        <a ng-click="sendThemMail()"><i class="fa fa-envelope"></i> Send mail to below contacts</a>
+      </p>
       <p>
         {{damnFormEntries.length}} entries of <span class="text-warning">{{currentLabel}}</span>
       </p>
@@ -56,12 +59,11 @@
                 {{entry[mandatory]}}
               </td>
               <td>
-                {{entry.labels}}
+                {{entry.labels || '-'}}
+                <a ng-click="editLabels(entry)"><i class="fa fa-pencil"></i></a>
               </td>
               <td>
                 <a ng-click="showEntry(entry)"><i class="fa fa-eye"></i></a>
-                <span class="text-muted">|</span>
-                <a ng-click="editLabels(entry)"><i class="fa fa-pencil"></i></a>
                 <span class="text-muted">|</span>
                 <a ng-click="sendMessage(entry)"><i class="fa fa-envelope"></i></a>
               </td>
