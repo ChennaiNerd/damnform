@@ -27,7 +27,7 @@ angular.module('myApp', [
                 templateUrl: 'scripts/views/entries/list.html',
                 controller: 'ListEntriesController'
             })
-            .when('/forms/:formId/entries/:id', {
+            .when('/forms/:form_id/entries/:id', {
                 templateUrl: 'scripts/views/entries/show.html',
                 controller: 'ShowEntryController'
             })

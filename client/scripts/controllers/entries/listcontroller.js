@@ -12,23 +12,31 @@ angular.module('myApp').controller('ListEntriesController',
         console.log(mandatories);
       }
     });
-    $scope.damnFormEntries = Entries.query({ formId : id });
+    $scope.damnFormEntries = Entries.query({ form_id : id });
 
     $scope.searchEntries = function (label) {
       if (label) {
         $scope.currentLabel = label;
-        $scope.damnFormEntries = Entries.query({ formId : id, labels: label });
+        $scope.damnFormEntries = Entries.query({ form_id : id, labels: label });
       } else if ($scope.search) {
         $scope.currentLabel = 'All';
-        $scope.damnFormEntries = Entries.query({ formId : id, search: $scope.search });
+        $scope.damnFormEntries = Entries.query({ form_id : id, search: $scope.search });
       } else {
         $scope.currentLabel = 'All';
-        $scope.damnFormEntries = Entries.query({ formId : id });
+        $scope.damnFormEntries = Entries.query({ form_id : id });
       }
     }
 
     $scope.isCurrentLabel = function (label) {
       return $scope.currentLabel === label;
+    }
+
+    $scope.editLabels = function (entry) {
+      var labels = prompt("Please edit labels", entry.labels || '');
+      if (labels != null) {
+        entry.labels = labels;
+        entry.$update();
+      }
     }
 
     $scope.showEntry = function (entry) {
