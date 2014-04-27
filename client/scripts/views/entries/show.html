@@ -1,19 +1,26 @@
 <h2 class="dialog-heading">Entry Information</h2>
-<table>
-<!--   <tr>
-    <th>
-      Field Name
-    </th>
-    <th>
-      Field Value
-    </th>
-  </tr> -->
-  <tr ng-repeat="(key, value) in entry" ng-if="key != 'apikey' && key != '_id' && key != 'form_id'">
-    <td class='filed-name'>
-      {{key}}:
-    </td>
-    <td class:"filed-value">
-      <strong>{{value}}</strong>
-    </td>
-  </tr>
-</table>
+<div class="row">
+  <div class="col-sm-8">
+    <table>
+    <!--   <tr>
+        <th>
+          Field Name
+        </th>
+        <th>
+          Field Value
+        </th>
+      </tr> -->
+      <tr ng-repeat="(key, value) in entry" ng-if="key != 'apikey' && key != '_id' && key != 'form_id'">
+        <td class='filed-name'>
+          {{key}}:
+        </td>
+        <td class:"filed-value">
+          <strong>{{value}}</strong>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-sm-4">
+    <img src="https://gravatar.com/avatar/{{hash}}" alt="" ng-if="hash"/>
+  </div>
+</div>
