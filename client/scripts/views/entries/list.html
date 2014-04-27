@@ -44,6 +44,9 @@
                 {{mandatory}}
               </th>
               <th>
+                Labels
+              </th>
+              <th>
               </th>
             </tr>
           </thead>
@@ -53,7 +56,14 @@
                 {{entry[mandatory]}}
               </td>
               <td>
-                <a ng-click="showEntry(entry)">View</a>
+                {{entry.labels}}
+              </td>
+              <td>
+                <a ng-click="showEntry(entry)"><i class="fa fa-eye"></i></a>
+                <span class="text-muted">|</span>
+                <a ng-click="editLabels(entry)"><i class="fa fa-pencil"></i></a>
+                <span class="text-muted">|</span>
+                <a ng-click="sendMessage(entry)"><i class="fa fa-envelope"></i></a>
               </td>
             </tr>
           </tbody>
