@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from werkzeug import MultiDict
 import database
 import uuid
+import json
 app = Flask(__name__, static_folder='client', static_url_path='')
 
 @app.route('/')
@@ -30,9 +31,12 @@ def create_entry(key):
 	if database.is_valid_form_data(key, request.form, request.data):
 		new_entry = database.save_entry(key, request.form, request.data, labels)
 		if not new_entry:
-			new_entry, code = '', 404
-		else:
-			if not request.data:
+			return '', 404
+		if not request.data:
+			redirect_url = json.loads(new_entry).get('thankyouUrl', None)
+			if redirect_url:
+				return redirect(redirect_url)
+			else:
 				return redirect(url_for('show_thank_you'))
 		return new_entry, code
 	else:
