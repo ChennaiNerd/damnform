@@ -1,6 +1,7 @@
 .ngdialog.ngdialog-theme-custom {
 	padding-top: 125px;
 	padding-bottom: 125px;
+
 }
 
 .ngdialog.ngdialog-theme-custom .ngdialog-overlay {
@@ -8,7 +9,10 @@
 }
 
 .ngdialog.ngdialog-theme-custom .ngdialog-content {
-	background: #faf3d7;
+	color: #444;
+	border: 5px solid #27AE60;
+	font-family: "Helvetica Neue",sans-serif;
+	background: rgba(255, 255, 255, 0.9);
 	padding: 1.8em 2em;
 	width: 440px;
 	-webkit-border-radius: 0;
