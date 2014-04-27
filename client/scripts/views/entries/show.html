@@ -1,0 +1,19 @@
+<table>
+  <caption>Entry information</caption>
+  <tr>
+    <th>
+      Field Name
+    </th>
+    <th>
+      Field Value
+    </th>
+  </tr>
+  <tr ng-repeat="(key, value) in entry" ng-if="key != 'apikey' && key != '_id' && key != 'form_id'">
+    <td class='filed-name'>
+      {{key}}
+    </td>
+    <td class:"filed-value">
+      {{value}}
+    </td>
+  </tr>
+</table>

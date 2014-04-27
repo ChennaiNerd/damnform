@@ -1,5 +1,5 @@
 angular.module('myApp').controller('ListEntriesController',
-        function($scope, $location, $routeParams, Forms, Entries) {
+        function($scope, $location, $routeParams, Forms, Entries, ngDialog) {
 
     $scope.currentLabel = 'All';
     var id = $routeParams.id;
@@ -29,6 +29,16 @@ angular.module('myApp').controller('ListEntriesController',
 
     $scope.isCurrentLabel = function (label) {
       return $scope.currentLabel === label;
+    }
+
+    $scope.showEntry = function (entry) {
+      var newScope = $scope.$new();
+      newScope.entry = entry;
+      ngDialog.open({
+          template: 'scripts/views/entries/show.html',
+          //className: 'ngdialog-theme-default',
+          scope: newScope
+        });
     }
 
     $scope.deleteForm = function () {
