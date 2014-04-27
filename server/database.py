@@ -21,7 +21,7 @@ def save_entry(apikey, value_in_form, value_in_data, labels):
 			dict_form_data[key] = str(value_in_form[key])
 	elif value_in_data:
 		dict_form_data = json.loads(value_in_data)
-	form_id = str(get_form_id(apikey))
+	form_id = get_form_id(apikey)
 	if not form_id:
 		return None
 	dict_form_data["form_id"] = form_id
