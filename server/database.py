@@ -15,21 +15,17 @@ def is_valid_form_data(key, value_in_form, value_in_data):
 	return True
 
 def save_entry(apikey, value_in_form, value_in_data, labels):
-	print "apikey = ", apikey
-	print "value_in_form = ", value_in_form 
-	print "value_in_data = ", value_in_data
-	print "labels = ", labels
+	dict_form_data = {}
 	if value_in_form:
-		dict_form_data = dict(value_in_form)
+		for key in value_in_form:
+			dict_form_data[key] = str(value_in_form[key])
 	elif value_in_data:
 		dict_form_data = json.loads(value_in_data)
-	form_id = get_form_id(apikey)
-	print 'form_id===============', form_id
+	form_id = str(get_form_id(apikey))
 	if not form_id:
-		return ''
+		return None
 	dict_form_data["form_id"] = form_id
 	dict_form_data["labels"] = labels
-	print 'dict_form_data 111111111111111111', dict_form_data
 	_id = entries.save(dict_form_data)
 	return json.dumps(entries.find_one({'_id': ObjectId(_id)}), default=json_util.default)
 

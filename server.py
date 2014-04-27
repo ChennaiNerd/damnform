@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
+from werkzeug import MultiDict
 import database
 import uuid
 app = Flask(__name__, static_folder='client', static_url_path='')
@@ -14,6 +15,10 @@ def default_app():
 	elif request.method == "POST":
 		return redirect(url_for('default_app'))
 
+@app.route('/thankyou.html')
+def show_thank_you():
+	return app.send_static_file('thankyou.html')
+
 #POST /api/:key?labels=:labels
 @app.route('/api/<key>', methods=["POST"])
 def create_entry(key):
@@ -24,8 +29,12 @@ def create_entry(key):
 	labels = request.args.get('labels')
 	if database.is_valid_form_data(key, request.form, request.data):
 		new_entry = database.save_entry(key, request.form, request.data, labels)
+		print 'NEW_ENTRY=', new_entry
 		if not new_entry:
 			new_entry, code = '', 404
+		else:
+			if request.data:
+				return redirect(url_for('show_thank_you'))
 		return new_entry, code
 	else:
 		return "Invalid form data", 400
