@@ -131,6 +131,7 @@ def sendmail(form_id):
 	mail_info = json.loads(request.data)
 	mail = compose_mail(mail_info['to'], mail_info['subject'], mail_info['message'])
 	mailgun.send_simple_message(mail)
+	return ''
 
 def compose_mail(to, subject, message):
 	return {
