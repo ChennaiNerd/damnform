@@ -58,7 +58,8 @@ def update_form(form_id, form_data):
 	return json.dumps(modified_form, default=json_util.default) if modified_form else None
 	
 def delete_form(form_id):
-	return forms.find_and_modify(query={'_id': ObjectId(form_id)}, remove=True)
+	deleted_form = forms.find_and_modify(query={'_id': ObjectId(form_id)}, remove=True)
+	return json.dumps(deleted_form, default=json_util.default) if deleted_form else None
 
 def get_entries(form_id, labels):
 	resultlist = []
@@ -81,7 +82,8 @@ def update_entry(entry_id, form_data):
 	return json.dumps(modified_entry, default=json_util.default) if modified_entry else None
 
 def delete_entry(entry_id):
-	return entries.find_and_modify(query={'_id': ObjectId(entry_id)}, remove=True)
+	deleted_entry = entries.find_and_modify(query={'_id': ObjectId(entry_id)}, remove=True)
+	return json.dumps(deleted_entry, default=json_util.default) if deleted_entry else None
 
 if __name__ == '__main__':
 	pass
