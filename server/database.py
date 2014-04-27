@@ -54,7 +54,6 @@ def get_form(form_id):
 def update_form(form_id, form_data):
 	dict_form_data = json.loads(form_data)
 	dict_form_data.pop('_id', None)
-	dict_form_data.pop('form_id', None)
 	modified_form = forms.find_and_modify(query={'_id': ObjectId(form_id)}, update=dict_form_data, new=True)
 	return json.dumps(modified_form, default=json_util.default) if modified_form else None
 	
@@ -79,7 +78,8 @@ def get_entry(entry_id):
 def update_entry(entry_id, form_data):
 	dict_form_data = json.loads(form_data)
 	dict_form_data.pop('_id', None)
-	modified_entry = entries.find_and_modify(query={'_id': ObjectId(entry_id)}, update=dict_form_data, new=True)
+	dict_form_data.pop('form_id', None)
+	modified_entry = entries.find_and_modify(query={'_id': ObjectId(entry_id)}, update={'$set': dict_form_data}, new=True)
 	return json.dumps(modified_entry, default=json_util.default) if modified_entry else None
 
 def delete_entry(entry_id):
