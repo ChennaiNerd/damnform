@@ -35,6 +35,10 @@ def create_entry(key):
 		if not new_entry:
 			return '', 404
 		if not request.data:
+			email_field = database.get_email_field(key)
+			welcome_mail_info = database.get_welcome_mail_info(key)
+			send_welcome_mail(new_entry[email_field], welcome_mail_info)
+
 			redirect_url = database.get_thankyou_url(key)
 			if redirect_url:
 				return redirect(redirect_url)
@@ -137,6 +141,9 @@ def compose_mail(to, subject, message):
 				#"html": "<html>Testing HTML <b>Bold</b><i>Italics</i><u>Underline</u></html>"
 			}
 
+def send_welcome_mail(welcome_mail_info):
+	#compose_mail(
+	pass
 	
 if __name__ == '__main__':
 	app.run(debug = True, host = '0.0.0.0', port = 8000)

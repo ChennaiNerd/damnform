@@ -54,6 +54,7 @@ def get_form(form_id):
 def update_form(form_id, form_data):
 	dict_form_data = json.loads(form_data)
 	dict_form_data.pop('_id', None)
+	dict_form_data.pop('form_id', None)
 	modified_form = forms.find_and_modify(query={'_id': ObjectId(form_id)}, update=dict_form_data, new=True)
 	return json.dumps(modified_form, default=json_util.default) if modified_form else None
 	
@@ -84,6 +85,21 @@ def update_entry(entry_id, form_data):
 def delete_entry(entry_id):
 	deleted_entry = entries.find_and_modify(query={'_id': ObjectId(entry_id)}, remove=True)
 	return json.dumps(deleted_entry, default=json_util.default) if deleted_entry else None
+
+def get_email_field(key):
+	form = forms.find_one({'apikey': apikey})
+	fields = form['schema']
+	for field in fields:
+		if field['type'] == 'email':
+			return field
+	return None
+
+def get_welcome_mail_info(key):
+	d = {}
+	form = forms.find_one({'apikey': apikey})
+	d['welcomeSubject'] = form.get('welcomeSubject', None)
+	d['welcomeMsg'] = form.get('welcomeMsg', None)
+	return d
 
 if __name__ == '__main__':
 	pass
