@@ -1,5 +1,5 @@
 angular.module('myApp').controller('ListEntriesController',
-        function($scope, $location, $routeParams, Forms, Entries, ngDialog) {
+        function($scope, $location, $routeParams, Forms, Entries, Mails, ngDialog) {
 
     $scope.currentLabel = 'All';
     var id = $routeParams.id;
@@ -34,7 +34,11 @@ angular.module('myApp').controller('ListEntriesController',
     $scope.editLabels = function (entry) {
       var labels = prompt("Please edit labels", entry.labels || '');
       if (labels != null) {
-        entry.labels = labels;
+        if (typeof labels === 'string') {
+          entry.labels = labels.split(',');
+        } else {
+          entry.labels = labels;
+        }
         entry.$update();
       }
     }
@@ -47,6 +51,36 @@ angular.module('myApp').controller('ListEntriesController',
           className: 'ngdialog-theme-default ngdialog-theme-custom',
           scope: newScope
         });
+    }
+
+    $scope.sendingmail = false;
+    $scope.sendMail = function (to) {
+      $scope.sendingmail = true;
+      if (to) {
+        $scope.to = [to];
+      } else {
+        //Get all to
+        var to = $scope.to = [];
+        for (var i = 0; i < $scope.damnFormEntries.length; i++) {
+          to.push($scope.damnFormEntries[i].email);
+        }
+      }
+    }
+
+    $scope.cancelMail = function () {
+      $scope.sendingmail = false;
+    }
+
+    $scope.sendMails = function() {
+      var mails = new Mails({ form_id: { '$oid' : id } });
+      mails.to = $scope.to;
+      mails.subject = $scope.mailSubject;
+      mails.message = $scope.mailMessage;
+      mails.$save().then(function() {
+        $scope.mailSubject = '';
+        $scope.mailMessage = '';
+        $scope.sendingmail = false;
+      });
     }
 
     $scope.deleteForm = function () {
