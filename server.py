@@ -3,6 +3,7 @@ from werkzeug import MultiDict
 import database
 import uuid
 import json
+import mailgun
 app = Flask(__name__, static_folder='client', static_url_path='')
 
 @app.route('/')
@@ -111,7 +112,17 @@ def sendmail(form_id):
 	Function to send mail to entries under form based on label criteria
 	'''
 	mail_info = json.loads(request.data)
-	#TODO send mail to reciepients
+	mail = compose_mail(mail_info['to'], mail_info['subject'], mail_info['message'])
+	mailgun.send_simple_message(mail)
+
+def compose_mail(to, subject, message):
+	return {
+				"from": "Mailgun Sandbox <postmaster@sandbox381bc65cf9a0430cb057afb272d83c3a.mailgun.org>",
+				"to": str(','.join(to)),
+				"subject": subject,
+				"text": message
+				#"html": "<html>Testing HTML <b>Bold</b><i>Italics</i><u>Underline</u></html>"
+			}
 
 	
 if __name__ == '__main__':
