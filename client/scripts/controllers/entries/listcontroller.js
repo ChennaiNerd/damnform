@@ -1,6 +1,7 @@
 angular.module('myApp').controller('ListEntriesController',
         function($scope, $location, $routeParams, Forms, Entries) {
 
+    var currentLabel = 'All';
     var id = $routeParams.id;
     var mandatories = $scope.mandatories = [];
     $scope.damnForm = Forms.get({ id : id }, function(damnForm) {
@@ -15,10 +16,17 @@ angular.module('myApp').controller('ListEntriesController',
 
     $scope.searchEntries = function (label) {
       if (label) {
+        currentLabel = label;
         $scope.damnFormEntries = Entries.query({ formId : id, labels: label });
       } else if ($scope.search) {
         $scope.damnFormEntries = Entries.query({ formId : id, search: $scope.search });
+      } else {
+        $scope.damnFormEntries = Entries.query({ formId : id });
       }
+    }
+
+    $scope.isCurrentLabel = function (label) {
+      return currentLabel === label;
     }
 
     $scope.deleteForm = function () {

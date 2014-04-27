@@ -77,6 +77,10 @@
       text-decoration: none;
       background-color: #fff;
     }
+
+    &.active {
+      color: $brand-color;
+    }
   }
 }
 
