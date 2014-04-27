@@ -1,19 +1,19 @@
+<h2 class="dialog-heading">Entry Information</h2>
 <table>
-  <caption>Entry information</caption>
-  <tr>
+<!--   <tr>
     <th>
       Field Name
     </th>
     <th>
       Field Value
     </th>
-  </tr>
+  </tr> -->
   <tr ng-repeat="(key, value) in entry" ng-if="key != 'apikey' && key != '_id' && key != 'form_id'">
     <td class='filed-name'>
-      {{key}}
+      {{key}}:
     </td>
     <td class:"filed-value">
-      {{value}}
+      <strong>{{value}}</strong>
     </td>
   </tr>
 </table>

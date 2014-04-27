@@ -36,7 +36,7 @@ angular.module('myApp').controller('ListEntriesController',
       newScope.entry = entry;
       ngDialog.open({
           template: 'scripts/views/entries/show.html',
-          //className: 'ngdialog-theme-default',
+          className: 'ngdialog-theme-default ngdialog-theme-custom',
           scope: newScope
         });
     }
