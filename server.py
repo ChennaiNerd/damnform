@@ -135,7 +135,7 @@ def sendmail(form_id):
 
 def compose_mail(to, subject, message):
 	return {
-				"from": "Mailgun Sandbox <postmaster@sandbox381bc65cf9a0430cb057afb272d83c3a.mailgun.org>",
+				"from": "DamnForm<postmaster@sandbox381bc65cf9a0430cb057afb272d83c3a.mailgun.org>",
 				"to": str(','.join(to)),
 				"subject": subject,
 				"text": message
