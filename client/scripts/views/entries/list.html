@@ -31,17 +31,21 @@
       </li>
     </div>
     <div class="col-sm-10">
-      <table class="table table-striped">
-          <tr>
-            <th ng-repeat="mandatory in mandatories">
-              {{mandatory}}
-            </th>
-          </tr>
-          <tr ng-repeat="entry in entries">
-            <td ng-repeat="mandatory in mandatories">
-              {{entry[mandatory]}}
-            </td>
-          </tr>
+      <table class="table">
+          <thead>
+            <tr>
+              <th ng-repeat="mandatory in mandatories">
+                {{mandatory}}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="entry in damnFormEntries">
+              <td ng-repeat="mandatory in mandatories">
+                {{entry[mandatory]}}
+              </td>
+            </tr>
+          </tbody>
        </table>
     </div>
   </div>
