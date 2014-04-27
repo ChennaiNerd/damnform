@@ -86,15 +86,15 @@ def delete_entry(entry_id):
 	deleted_entry = entries.find_and_modify(query={'_id': ObjectId(entry_id)}, remove=True)
 	return json.dumps(deleted_entry, default=json_util.default) if deleted_entry else None
 
-def get_email_field(key):
+def get_email_field(apikey):
 	form = forms.find_one({'apikey': apikey})
 	fields = form['schema']
 	for field in fields:
 		if field['type'] == 'email':
-			return field
+			return field['name']
 	return None
 
-def get_welcome_mail_info(key):
+def get_welcome_mail_info(apikey):
 	d = {}
 	form = forms.find_one({'apikey': apikey})
 	d['welcomeSubject'] = form.get('welcomeSubject', None)
