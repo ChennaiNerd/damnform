@@ -4,6 +4,7 @@ import database
 import uuid
 import json
 import mailgun
+import hashlib
 app = Flask(__name__, static_folder='client', static_url_path='')
 
 @app.route('/')
@@ -104,6 +105,18 @@ def entry(form_id, entry_id):
 		entry, code = '', 404
 
 	return entry, code
+
+#GET /image/:email
+@app.route('/image/<email_id>', methods=["GET"])
+def getGravatar(email_id):
+	'''
+	Function to calculate the md5 hash of email_id & return gravatar image URL
+	'''
+	m = hashlib.md5()
+	m.update(email_id)
+	myhash = m.hexdigest()
+	url = 'https://gravatar.com/avatar/' + myhash
+	return url
 
 #POST /api/forms/:id/sendmail
 app.route('/api/forms/<form_id>/sendmail', methods=["POST"])
