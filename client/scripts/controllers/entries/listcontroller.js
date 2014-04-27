@@ -34,7 +34,11 @@ angular.module('myApp').controller('ListEntriesController',
     $scope.editLabels = function (entry) {
       var labels = prompt("Please edit labels", entry.labels || '');
       if (labels != null) {
-        entry.labels = labels;
+        if (typeof labels === 'string') {
+          entry.labels = labels.split(',');
+        } else {
+          entry.labels = labels;
+        }
         entry.$update();
       }
     }
@@ -53,7 +57,7 @@ angular.module('myApp').controller('ListEntriesController',
     $scope.sendMail = function (to) {
       $scope.sendingmail = true;
       if (to) {
-        $scope.to = to;
+        $scope.to = [to];
       } else {
         //Get all to
         var to = $scope.to = [];
@@ -68,7 +72,7 @@ angular.module('myApp').controller('ListEntriesController',
     }
 
     $scope.sendMails = function() {
-      var mails = new Mails({ form_id : id });
+      var mails = new Mails({ form_id: { '$oid' : id } });
       mails.to = $scope.to;
       mails.subject = $scope.mailSubject;
       mails.message = $scope.mailMessage;

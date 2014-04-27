@@ -60,7 +60,7 @@
                   {{entry[mandatory]}}
                 </td>
                 <td>
-                  {{entry.labels || '-'}}
+                  <span class="label label-info" ng-repeat="label in entry.labels">{{label}}</span>
                   <a ng-click="editLabels(entry)"><i class="fa fa-pencil"></i></a>
                 </td>
                 <td>
