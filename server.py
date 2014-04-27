@@ -33,7 +33,7 @@ def create_entry(key):
 		if not new_entry:
 			new_entry, code = '', 404
 		else:
-			if request.data:
+			if not request.form:
 				return redirect(url_for('show_thank_you'))
 		return new_entry, code
 	else:
