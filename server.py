@@ -29,11 +29,10 @@ def create_entry(key):
 	labels = request.args.get('labels')
 	if database.is_valid_form_data(key, request.form, request.data):
 		new_entry = database.save_entry(key, request.form, request.data, labels)
-		print 'NEW_ENTRY=', new_entry
 		if not new_entry:
 			new_entry, code = '', 404
 		else:
-			if not request.form:
+			if not request.data:
 				return redirect(url_for('show_thank_you'))
 		return new_entry, code
 	else:
