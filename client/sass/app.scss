@@ -30,8 +30,8 @@ $icon-font-path: "/bower_components/bootstrap-sass/vender/assets/fonts/";
 
 // Index page
 .jumbotron {
-  background-color: #fff;
-  background-image: url(/images/trianglify-background.svg);
+  background-color: #f4f4f4;
+  //background-image: url(/images/trianglify-background.svg);
   border-bottom: 1px solid #eee;
   padding-bottom: 50px;
   padding-top: 60px;
@@ -39,8 +39,8 @@ $icon-font-path: "/bower_components/bootstrap-sass/vender/assets/fonts/";
   h1 {
     text-align: center;
     font-size: 32px;
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
+    color: $brand-color;
+    text-shadow: 1px 1px 1px #fff;
     font: 3.5em "OpenSansBold",Helvetica,Arial,sans-serif;
   }
 
@@ -81,4 +81,12 @@ $icon-font-path: "/bower_components/bootstrap-sass/vender/assets/fonts/";
 
 .form-signin-heading {
   margin-bottom: 20px;
+}
+
+// Search container
+.search-container {
+  .heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
 }

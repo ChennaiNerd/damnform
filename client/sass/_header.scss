@@ -19,11 +19,9 @@
 }
 
 .navbar-brand {
+    font-size: 22px;
     font-weight: 700;
     color: $brand-color !important;
-    height: 60px;
-    padding-top: 0;
-    margin-top: -10px;
 
     &:focus,
     &:hover,

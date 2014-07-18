@@ -1,12 +1,12 @@
 <div class="container search-container">
   <div class="row">
     <div class="col-sm-6">
-      <h3>{{damnForm.name}}
-        <a href="#/forms/{{ damnForm._id.$oid }}/edit"><i class="fa fa-pencil"></i></a>
-        <a ng-click="deleteForm()"><i class="fa fa-trash-o"></i></a>
-      </h3>
+      <h4 class="heading">{{damnForm.name}}
+        <a class="btn btn-default btn-sm" href="#/forms/{{ damnForm._id.$oid }}/edit"><i class="fa fa-pencil"></i> Edit</a>
+        <a class="btn btn-default btn-sm" ng-click="deleteForm()"><i class="fa fa-trash-o"></i> Delete</a>
+      </h4>
     </div>
-    <div class="col-md-6 pull-right">
+    <div class="col-sm-6 pull-right">
       <form id="form" ng-submit='searchEntries()'>
         <div class="row">
           <div class="col-md-10">
@@ -21,7 +21,7 @@
     </div>
   </div>
 </div>
-<hr class="ruler ruler-lg">
+<hr class="ruler">
 <div class="container">
   <div class="row main-row">
     <div class="col-sm-2 nav sidepane">
@@ -36,7 +36,7 @@
     <div class="col-sm-10">
       <div ng-hide="sendingmail">
         <p class="pull-right">
-          <a ng-click="sendMail()"><i class="fa fa-envelope"></i> Send mail to below contacts</a>
+          <a class="btn btn-default btn-sm" ng-click="sendMail()"><i class="fa fa-envelope"></i> Send mail to below contacts</a>
         </p>
         <p>
           {{damnFormEntries.length}} entries of <span class="text-warning">{{currentLabel}}</span>
